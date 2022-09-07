@@ -195,7 +195,7 @@ export default {
                 CVN: this.CVN,
                 donateMoney: this.donateMoney
             }
-            localStorage.setItem("user", user)
+            localStorage.setItem("user", JSON.stringify(user))
             alert('Submit successfully! User data has been stored into localStorage')
         },
         validationStatus(validation) {
