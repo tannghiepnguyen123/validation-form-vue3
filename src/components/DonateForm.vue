@@ -179,10 +179,24 @@ export default {
         }
     },
     methods: {
-        handleSubmit: function () {
+        handleSubmit() {
             this.v$.$touch();
             if (this.v$.$pendding || this.v$.$error) return;
-            alert('Data submit successfully')
+            const user = {
+                firstName: this.firstName,
+                gender: this.gender,
+                lastName: this.lastName,
+                paymentMode: this.paymentMode,
+                company: this.company,
+                cardNumber: this.cardNumber,
+                email: this.email,
+                expiration: this.expiration,
+                phoneNumber: this.phoneNumber,
+                CVN: this.CVN,
+                donateMoney: this.donateMoney
+            }
+            localStorage.setItem("user", user)
+            alert('Submit successfully! User data has been stored into localStorage')
         },
         validationStatus(validation) {
             return typeof validation != "undefined" ? validation.$error : false
